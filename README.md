@@ -9,6 +9,6 @@ Web game made to assess kid's speed/mental math capacity.
 `offline_mode.html` All JS, CSS, and HTML smashed into one file for easy offline play.
 
 # Libraries
-- Boostrap
-- jQuery
-- jQuery UI
+- [Bootstrap](http://getbootstrap.com/)
+- [jQuery](https://jquery.com/)
+- [jQuery UI](https://jqueryui.com/)
