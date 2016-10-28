@@ -1,0 +1,188 @@
+<html>
+   <head>
+      <title>Speedy Math</title>
+
+      <!-- Special jQuery UI Settings -->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Favicon Stuff -->
+      <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+      <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+      <!-- Stylesheets -->
+      <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	  <style>
+		label{display: inline-block;text-align:center;}label:first-child{text-align:left;}label:last-child{text-align:right;}
+	  </style>
+   </head>
+
+   <body>
+     <!-- Pre-Game Settings Panel -->
+     <div id="start" class="container">
+       <h1>Speedy Math</h1>
+       <hr>
+
+  	   <!-- Operations Checklist -->
+  	   <b>Operations:</b><br>
+  	   <div class="checkbox">
+  		     <label><input id="add" type="checkbox" value="add">Addition</label>
+  	   </div>
+  	   <div class="checkbox">
+  		     <label><input id="sub" type="checkbox" value="sub">Subtraction</label>
+  	   </div>
+  	   <div class="checkbox">
+  		     <label><input id="mult" type="checkbox" value="mult">Multiplication</label>
+  	   </div>
+  	   <div class="checkbox">
+  		     <label><input id="div" type="checkbox" value="div">Division<br></label>
+       </div>
+
+       <!-- Addition Problem Difficulty Slider -->
+       <div id="addSlider" style="display: none">
+         <p>
+           <label for="amount">Addition Difficulty:</label>
+         </p>
+         <div id="addDifficulty-slider"></div>
+         <div class="legend"></div>
+       </div>
+
+       <!-- Subtraction Problem Difficulty Slider -->
+       <div id="subSlider" style="display: none">
+         <p>
+           <label for="amount">Subtraction Difficulty:</label>
+         </p>
+         <div id="subDifficulty-slider"></div>
+         <div class="legend"></div>
+       </div>
+
+       <!-- Multiplication Problem Difficulty Slider -->
+       <div id="multSlider" style="display: none">
+         <p>
+           <label for="amount">Multiplication Difficulty:</label>
+         </p>
+         <div id="multDifficulty-slider"></div>
+         <div class="legend"></div>
+       </div>
+
+       <!-- Division Problem Difficulty Slider -->
+       <div id="divSlider" style="display: none">
+         <p>
+           <label for="amount">Division Difficulty:</label>
+         </p>
+         <div id="divDifficulty-slider"></div>
+         <div class="legend"></div>
+       </div>
+
+	     <!-- Start Game Button -->
+       <p style="text-align: center">
+         <button class="btn btn-success" onclick="startGame()">Start Game</button>
+       </p>
+     </div>
+
+     <!-- Game Panel -->
+     <div id="game" style="display: none">
+	     <!-- Score + Time Info Display -->
+       <p id="info" style="text-align: right">
+         Score: 0 | Time: 60
+       </p>
+
+	     <!-- Problem Display -->
+       <h2 id="problem" style="text-align: center">
+
+       </h2>
+
+	     <!-- Answer Input -->
+       <p style="text-align: center">
+         <input id="ans" style="height:100px; font-size:14pt;" autofocus></input>
+       </p>
+     </div>
+
+     <!-- Post Game Scoring Panel -->
+     <div id="end" class="container" style="display: none">
+  	   <!-- Congratulatory Message -->
+  	   <h1 style="text-align: center">Congratulations!</h1>
+  	   <hr>
+
+       <div class="row">
+         <div class="col-sm-4">
+           <!-- Final Score Display -->
+           <h3 style="text-align: center">Score</h3>
+           <b><h1 id="score" style="text-align: center; color: #ff4b00;"></h1></b>
+         </div>
+
+         <div class="col-sm-4">
+           <!-- Number of Problems Solved Display -->
+           <h3 style="text-align: center">Correct Problems</h3>
+           <b><h1 id="numProblems" style="text-align: center; color: #ff4b00;"></h1></b>
+         </div>
+		 
+		 <div class="col-sm-4">
+           <!-- Number of Problems Solved Display -->
+           <h3 style="text-align: center">Incorrect Problems</h3>
+           <b><h1 id="numWrongProblems" style="text-align: center; color: #ff4b00;"></h1></b>
+         </div>
+       </div>
+
+	   <div id="wrong" style="display: none">
+		  <!-- Problems You Got Wrong Display -->
+		  <h3 style="text-align: center">Problems You Got Wrong</h3>
+		  <div id="wrongProblem" class="list-group"></div>
+	   </div>
+	   
+  	   <!-- Total Accuracy Percent Bar -->
+  	   <h3 id="totalAccuracyHead" style="text-align: center"></h3>
+  	   <div class="progress">
+  		    <div class="progress-bar progress-bar-success" id="totalAccuracy" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%">
+  		      70%
+  		    </div>
+  	   </div>
+
+	   <!-- Addition Percent Accuracy Bar -->
+       <div id="addStats" style="display: none">
+         <h3 id="addAccuracyHead" style="text-align: center"></h3>
+    	   <div class="progress">
+    		    <div class="progress-bar progress-bar-success" id="addAccuracy" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%">
+    		      70%
+    		    </div>
+    	   </div>
+       </div>
+
+	   <!-- Subtraction Percent Accuracy Bar -->
+       <div id="subStats" style="display: none">
+         <h3 id="subAccuracyHead" style="text-align: center"></h3>
+    	   <div class="progress">
+    		    <div class="progress-bar progress-bar-success" id="subAccuracy" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%">
+    		      70%
+    		    </div>
+    	   </div>
+       </div>
+
+	   <!-- Multiplication Percent Accuracy Bar -->
+       <div id="multStats" style="display: none">
+         <h3 id="multAccuracyHead" style="text-align: center"></h3>
+    	   <div class="progress">
+    		    <div class="progress-bar progress-bar-success" id="multAccuracy" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%">
+    		      70%
+    		    </div>
+    	   </div>
+       </div>
+
+	   <!-- Division Percent Accuracy Bar -->
+       <div id="divStats" style="display: none">
+         <h3 id="divAccuracyHead" style="text-align: center"></h3>
+    	   <div class="progress">
+    		    <div class="progress-bar progress-bar-success" id="divAccuracy" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%">
+    		      70%
+    		    </div>
+    	   </div>
+       </div>
+     </div>
+
+      <!-- JavaScript -->
+	  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+      <script src="app.js"></script>
+   </body>
+</html>
