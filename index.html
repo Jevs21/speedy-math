@@ -36,7 +36,13 @@
   		     <label><input id="mult" type="checkbox" value="mult">Multiplication</label>
   	   </div>
   	   <div class="checkbox">
-  		     <label><input id="div" type="checkbox" value="div">Division<br></label>
+  		     <label><input id="div" type="checkbox" value="div">Division</label>
+       </div>
+       <div class="checkbox">
+  		     <label><input id="exp" type="checkbox" value="exp">Exponents</label>
+       </div>
+       <div class="checkbox">
+          <label><input id="sq" type="checkbox" value="sq">Perfect Squares</label>
        </div>
 
        <!-- Addition Problem Difficulty Slider -->
@@ -75,14 +81,37 @@
          <div class="legend"></div>
        </div>
 
+       <!-- Exponent Problem Difficulty Slider -->
+       <div id="expSlider" style="display: none">
+         <p>
+           <label for="amount">Exponent Difficulty:</label>
+         </p>
+         <div id="expDifficulty-slider"></div>
+         <div class="legend"></div>
+       </div>
+
+       <!-- Exponent Problem Difficulty Slider -->
+       <div id="sqSlider" style="display: none">
+         <p>
+           <label for="amount">Perfect Square Difficulty:</label>
+         </p>
+         <div id="sqDifficulty-slider"></div>
+         <div class="legend"></div>
+       </div>
+
 	     <!-- Start Game Button -->
        <p style="text-align: center">
-         <button class="btn btn-success" onclick="startGame()">Start Game</button>
+         <button class="btn btn-primary" onclick="startGame()">Race Mode</button>
+         <button class="btn btn-success" onclick="startPractice()">Practice Mode</button>
        </p>
      </div>
 
      <!-- Game Panel -->
      <div id="game" style="display: none">
+       <p style="text-align: left">
+         <button id="quitPractice" onclick="endPractice()" class="btn btn-danger" style="display: none">End Practice</button>
+         <button id="quitGame" onclick="endGame()" class="btn btn-danger" style="display: none">End Game</button>
+       </p>
 	     <!-- Score + Time Info Display -->
        <p id="info" style="text-align: right">
          Score: 0 | Time: 60
@@ -117,12 +146,12 @@
            <h3 style="text-align: center">Correct Problems</h3>
            <b><h1 id="numProblems" style="text-align: center; color: #ff4b00;"></h1></b>
          </div>
-		 
-		 <div class="col-sm-4">
+
+		    <div class="col-sm-4">
            <!-- Number of Problems Solved Display -->
            <h3 style="text-align: center">Incorrect Problems</h3>
            <b><h1 id="numWrongProblems" style="text-align: center; color: #ff4b00;"></h1></b>
-         </div>
+        </div>
        </div>
 
 	   <div id="wrong" style="display: none">
@@ -130,7 +159,7 @@
 		  <h3 style="text-align: center">Problems You Got Wrong</h3>
 		  <div id="wrongProblem" class="list-group"></div>
 	   </div>
-	   
+
   	   <!-- Total Accuracy Percent Bar -->
   	   <h3 id="totalAccuracyHead" style="text-align: center"></h3>
   	   <div class="progress">
@@ -139,7 +168,7 @@
   		    </div>
   	   </div>
 
-	   <!-- Addition Percent Accuracy Bar -->
+	     <!-- Addition Percent Accuracy Bar -->
        <div id="addStats" style="display: none">
          <h3 id="addAccuracyHead" style="text-align: center"></h3>
     	   <div class="progress">
@@ -149,7 +178,7 @@
     	   </div>
        </div>
 
-	   <!-- Subtraction Percent Accuracy Bar -->
+	     <!-- Subtraction Percent Accuracy Bar -->
        <div id="subStats" style="display: none">
          <h3 id="subAccuracyHead" style="text-align: center"></h3>
     	   <div class="progress">
@@ -159,7 +188,7 @@
     	   </div>
        </div>
 
-	   <!-- Multiplication Percent Accuracy Bar -->
+	     <!-- Multiplication Percent Accuracy Bar -->
        <div id="multStats" style="display: none">
          <h3 id="multAccuracyHead" style="text-align: center"></h3>
     	   <div class="progress">
@@ -169,7 +198,7 @@
     	   </div>
        </div>
 
-	   <!-- Division Percent Accuracy Bar -->
+	     <!-- Division Percent Accuracy Bar -->
        <div id="divStats" style="display: none">
          <h3 id="divAccuracyHead" style="text-align: center"></h3>
     	   <div class="progress">
@@ -178,6 +207,26 @@
     		    </div>
     	   </div>
        </div>
+
+         <!-- Exponents Percent Accuracy Bar -->
+         <div id="expStats" style="display: none">
+           <h3 id="expAccuracyHead" style="text-align: center"></h3>
+      	   <div class="progress">
+      		    <div class="progress-bar progress-bar-success" id="expAccuracy" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%">
+      		      70%
+      		    </div>
+      	   </div>
+         </div>
+
+         <!-- Perfect Square Percent Accuracy Bar -->
+         <div id="sqStats" style="display: none">
+           <h3 id="sqAccuracyHead" style="text-align: center"></h3>
+      	   <div class="progress">
+      		    <div class="progress-bar progress-bar-success" id="sqAccuracy" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%">
+      		      70%
+      		    </div>
+      	   </div>
+         </div>
      </div>
 
       <!-- JavaScript -->
