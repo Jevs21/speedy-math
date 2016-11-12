@@ -24,19 +24,19 @@
        <h1>Speedy Math</h1>
        <hr>
 
-  	   <!-- Operations Checklist -->
-  	   <b>Operations:</b><br>
+  	   <!-- Whole Number Operations Checklist -->
+  	   <b>Whole Number Operations:</b><br>
   	   <div class="checkbox">
-  		     <label><input id="add" type="checkbox" value="add">Addition</label>
+  		     <label><input id="intAdd" type="checkbox" value="add">Addition</label>
   	   </div>
   	   <div class="checkbox">
-  		     <label><input id="sub" type="checkbox" value="sub">Subtraction</label>
+  		     <label><input id="intSub" type="checkbox" value="sub">Subtraction</label>
   	   </div>
   	   <div class="checkbox">
-  		     <label><input id="mult" type="checkbox" value="mult">Multiplication</label>
+  		     <label><input id="intMult" type="checkbox" value="mult">Multiplication</label>
   	   </div>
   	   <div class="checkbox">
-  		     <label><input id="div" type="checkbox" value="div">Division</label>
+  		     <label><input id="intDiv" type="checkbox" value="div">Division</label>
        </div>
        <div class="checkbox">
   		     <label><input id="exp" type="checkbox" value="exp">Exponents</label>
@@ -45,39 +45,54 @@
           <label><input id="sq" type="checkbox" value="sq">Perfect Squares</label>
        </div>
 
+       <!-- Decimal Operations Checklist -->
+  	   <b>Decimal Number Operations:</b><br>
+  	   <div class="checkbox">
+  		     <label><input id="decAdd" type="checkbox" value="add">Addition</label>
+  	   </div>
+  	   <div class="checkbox">
+  		     <label><input id="decSub" type="checkbox" value="sub">Subtraction</label>
+  	   </div>
+  	   <div class="checkbox">
+  		     <label><input id="decMult" type="checkbox" value="mult">Multiplication</label>
+  	   </div>
+  	   <div class="checkbox">
+  		     <label><input id="decDiv" type="checkbox" value="div">Division</label>
+      </div>
+
        <!-- Addition Problem Difficulty Slider -->
-       <div id="addSlider" style="display: none">
+       <div id="intAddSlider" style="display: none">
          <p>
-           <label for="amount">Addition Difficulty:</label>
+           <label for="amount">Whole Number Addition Difficulty:</label>
          </p>
-         <div id="addDifficulty-slider"></div>
+         <div id="intAddDifficulty-slider"></div>
          <div class="legend"></div>
        </div>
 
        <!-- Subtraction Problem Difficulty Slider -->
-       <div id="subSlider" style="display: none">
+       <div id="intSubSlider" style="display: none">
          <p>
-           <label for="amount">Subtraction Difficulty:</label>
+           <label for="amount">Whole Number Subtraction Difficulty:</label>
          </p>
-         <div id="subDifficulty-slider"></div>
+         <div id="intSubDifficulty-slider"></div>
          <div class="legend"></div>
        </div>
 
        <!-- Multiplication Problem Difficulty Slider -->
-       <div id="multSlider" style="display: none">
+       <div id="intMultSlider" style="display: none">
          <p>
-           <label for="amount">Multiplication Difficulty:</label>
+           <label for="amount">Whole Number Multiplication Difficulty:</label>
          </p>
-         <div id="multDifficulty-slider"></div>
+         <div id="intMultDifficulty-slider"></div>
          <div class="legend"></div>
        </div>
 
        <!-- Division Problem Difficulty Slider -->
-       <div id="divSlider" style="display: none">
+       <div id="intDivSlider" style="display: none">
          <p>
-           <label for="amount">Division Difficulty:</label>
+           <label for="amount">Whole Number Division Difficulty:</label>
          </p>
-         <div id="divDifficulty-slider"></div>
+         <div id="intDivDifficulty-slider"></div>
          <div class="legend"></div>
        </div>
 
@@ -90,12 +105,48 @@
          <div class="legend"></div>
        </div>
 
-       <!-- Exponent Problem Difficulty Slider -->
+	   <!-- Exponent Problem Difficulty Slider -->
        <div id="sqSlider" style="display: none">
          <p>
-           <label for="amount">Perfect Square Difficulty:</label>
+           <label for="amount">Perfect Squares Difficulty:</label>
          </p>
          <div id="sqDifficulty-slider"></div>
+         <div class="legend"></div>
+       </div>
+
+       <!-- Decimal Addition Problem Difficulty Slider -->
+       <div id="decAddSlider" style="display: none">
+         <p>
+           <label for="amount">Decimal Addition Difficulty:</label>
+         </p>
+         <div id="decAddDifficulty-slider"></div>
+         <div class="legend"></div>
+       </div>
+
+	   <!-- Decimal Subtraction Problem Difficulty Slider -->
+       <div id="decSubSlider" style="display: none">
+         <p>
+           <label for="amount">Decimal Subtraction Difficulty:</label>
+         </p>
+         <div id="decSubDifficulty-slider"></div>
+         <div class="legend"></div>
+       </div>
+
+	   <!-- Decimal Multiplication Problem Difficulty Slider -->
+       <div id="decMultSlider" style="display: none">
+         <p>
+           <label for="amount">Decimal Multiplication Difficulty:</label>
+         </p>
+         <div id="decMultDifficulty-slider"></div>
+         <div class="legend"></div>
+       </div>
+
+	   <!-- Decimal Division Problem Difficulty Slider -->
+       <div id="decDivSlider" style="display: none">
+         <p>
+           <label for="amount">Decimal Division Difficulty:</label>
+         </p>
+         <div id="decDivDifficulty-slider"></div>
          <div class="legend"></div>
        </div>
 
@@ -124,7 +175,7 @@
 
 	     <!-- Answer Input -->
        <p style="text-align: center">
-         <input id="ans" style="height:100px; font-size:14pt;" autofocus></input>
+         <input id="ans" style="height:100px; font-size:14pt;" autofocus=""></input>
        </p>
      </div>
 
@@ -154,56 +205,56 @@
         </div>
        </div>
 
-	   <div id="wrong" style="display: none">
-		  <!-- Problems You Got Wrong Display -->
-		  <h3 style="text-align: center">Problems You Got Wrong</h3>
-		  <div id="wrongProblem" class="list-group"></div>
-	   </div>
+	     <div id="wrong" style="display: none">
+		     <!-- Problems You Got Wrong Display -->
+		     <h3 style="text-align: center">Problems You Got Wrong</h3>
+		     <div id="wrongProblem" class="list-group"></div>
+	     </div>
 
   	   <!-- Total Accuracy Percent Bar -->
   	   <h3 id="totalAccuracyHead" style="text-align: center"></h3>
   	   <div class="progress">
-  		    <div class="progress-bar progress-bar-success" id="totalAccuracy" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%">
-  		      70%
+  		    <div class="progress-bar progress-bar-success" id="totalAccuracy" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+  		      0%
   		    </div>
   	   </div>
 
 	     <!-- Addition Percent Accuracy Bar -->
-       <div id="addStats" style="display: none">
-         <h3 id="addAccuracyHead" style="text-align: center"></h3>
+       <div id="intAddStats" style="display: none">
+         <h3 id="intAddAccuracyHead" style="text-align: center"></h3>
     	   <div class="progress">
-    		    <div class="progress-bar progress-bar-success" id="addAccuracy" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%">
-    		      70%
+    		    <div class="progress-bar progress-bar-success" id="intAddAccuracy" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+    		      0%
     		    </div>
     	   </div>
        </div>
 
 	     <!-- Subtraction Percent Accuracy Bar -->
-       <div id="subStats" style="display: none">
-         <h3 id="subAccuracyHead" style="text-align: center"></h3>
+       <div id="intSubStats" style="display: none">
+         <h3 id="intSubAccuracyHead" style="text-align: center"></h3>
     	   <div class="progress">
-    		    <div class="progress-bar progress-bar-success" id="subAccuracy" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%">
-    		      70%
+    		    <div class="progress-bar progress-bar-success" id="intSubAccuracy" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+    		      0%
     		    </div>
     	   </div>
        </div>
 
 	     <!-- Multiplication Percent Accuracy Bar -->
-       <div id="multStats" style="display: none">
-         <h3 id="multAccuracyHead" style="text-align: center"></h3>
+       <div id="intMultStats" style="display: none">
+         <h3 id="intMultAccuracyHead" style="text-align: center"></h3>
     	   <div class="progress">
-    		    <div class="progress-bar progress-bar-success" id="multAccuracy" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%">
-    		      70%
+    		    <div class="progress-bar progress-bar-success" id="intMultAccuracy" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+    		      0%
     		    </div>
     	   </div>
        </div>
 
 	     <!-- Division Percent Accuracy Bar -->
-       <div id="divStats" style="display: none">
-         <h3 id="divAccuracyHead" style="text-align: center"></h3>
+       <div id="intDivStats" style="display: none">
+         <h3 id="intDivAccuracyHead" style="text-align: center"></h3>
     	   <div class="progress">
-    		    <div class="progress-bar progress-bar-success" id="divAccuracy" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%">
-    		      70%
+    		    <div class="progress-bar progress-bar-success" id="intDivAccuracy" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+    		      0%
     		    </div>
     	   </div>
        </div>
@@ -212,8 +263,8 @@
          <div id="expStats" style="display: none">
            <h3 id="expAccuracyHead" style="text-align: center"></h3>
       	   <div class="progress">
-      		    <div class="progress-bar progress-bar-success" id="expAccuracy" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%">
-      		      70%
+      		    <div class="progress-bar progress-bar-success" id="expAccuracy" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+      		      0%
       		    </div>
       	   </div>
          </div>
@@ -222,16 +273,60 @@
          <div id="sqStats" style="display: none">
            <h3 id="sqAccuracyHead" style="text-align: center"></h3>
       	   <div class="progress">
-      		    <div class="progress-bar progress-bar-success" id="sqAccuracy" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%">
-      		      70%
+      		    <div class="progress-bar progress-bar-success" id="sqAccuracy" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+      		      0%
       		    </div>
       	   </div>
          </div>
+
+		     <!-- Decimal Addition Percent Accuracy Bar -->
+         <div id="decAddStats" style="display: none">
+           <h3 id="decAddAccuracyHead" style="text-align: center"></h3>
+      	   <div class="progress">
+      		    <div class="progress-bar progress-bar-success" id="decAddAccuracy" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+      		      0%
+      		    </div>
+      	   </div>
+         </div>
+
+		     <!-- Decimal Subtraction Percent Accuracy Bar -->
+         <div id="decSubStats" style="display: none">
+           <h3 id="decSubAccuracyHead" style="text-align: center"></h3>
+      	   <div class="progress">
+      		    <div class="progress-bar progress-bar-success" id="decSubAccuracy" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+      		      0%
+      		    </div>
+      	   </div>
+         </div>
+
+		     <!-- Decimal Multiplication Percent Accuracy Bar -->
+         <div id="decMultStats" style="display: none">
+           <h3 id="decMultAccuracyHead" style="text-align: center"></h3>
+      	   <div class="progress">
+      		    <div class="progress-bar progress-bar-success" id="decMultAccuracy" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+      		      0%
+      		    </div>
+      	   </div>
+         </div>
+
+		     <!-- Decimal Division Percent Accuracy Bar -->
+         <div id="decDivStats" style="display: none">
+           <h3 id="decDivAccuracyHead" style="text-align: center"></h3>
+      	   <div class="progress">
+      		    <div class="progress-bar progress-bar-success" id="decDivAccuracy" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+      		      0%
+      		    </div>
+      	   </div>
+         </div>
+
+  		 <center>
+  			<button class="btn btn-primary" onclick="goHome()">Back to Home Screen</button>
+  		 </center>
      </div>
 
       <!-- JavaScript -->
-	  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-	  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  	  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  	  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
       <script src="app.js"></script>
    </body>
 </html>
