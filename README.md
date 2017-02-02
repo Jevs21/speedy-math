@@ -1,6 +1,8 @@
 # speedy-math
 Web game made to assess kid's speed/mental math capacity. 
 
+Written by [@reesdraminski](https://github.com/reesdraminski)
+
 # Files
 `app.js` The JavaScript that controls the math game.
 
