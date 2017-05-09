@@ -326,6 +326,7 @@ function startGame() {
 
   // Start the timer
   setInterval(checkTime, 1000);
+
 }
 
 function endPractice() {
@@ -597,6 +598,34 @@ function checkTime() {
   // Check if game is over
   if (time === 0)
     endGame();
+}
+
+// 3 second countdown to begin race mode
+function countdown() {
+
+    // Hide start page
+    document.getElementById("start").style.display = "none";
+
+    // Show game and initialize game html elements
+    document.getElementById("game").style.display = "";
+
+    // Sets initial timer value before timer delays start
+    document.getElementById("problem").innerHTML = "3";
+
+    // Actual timer function.
+    setTimeout(function(){
+        document.getElementById("problem").innerHTML = "2";
+        setTimeout(function(){
+            document.getElementById("problem").innerHTML = "1";
+            setTimeout(function(){
+                document.getElementById("problem").innerHTML = "Begin!";
+                setTimeout(function(){
+                    //launches actual game as the html button click launches countdown function
+                    startGame();
+                }, 1000);
+            }, 1000);
+        }, 1000);
+    }, 1000);
 }
 
 // Procedurally generate problems
